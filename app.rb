@@ -10,11 +10,11 @@ require('pry-byebug')
 # BEFORE
 before do
 
-  starwars_db = Database.new( 'star_wars' )
-  jedis_table = starwars_db.table( 'jedis', 'name' )
+  db = Database.new( 'money_cashboard' )
+  merchants_table = db.table( 'merchants', 'name' )
   controllers = {}
 
-  controllers['jedis'] = Controller.new( jedis_table )
+  controllers['merchants'] = Controller.new( merchants_table )
 
   @path = request.path_info
   @path_root = @path[1..-1].split("/").first
