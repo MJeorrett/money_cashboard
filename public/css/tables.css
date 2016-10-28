@@ -14,10 +14,6 @@ tr:hover {
   background-color: lightblue;
 }
 
-.header-row, .header-row:hover {
-  background-color: dodgerblue;
-}
-
 th {
   color: white;
 }
@@ -27,5 +23,14 @@ th:not(.th-first) {
 }
 
 th, td {
+  cursor: cell;
+}
+
+.header-row, .header-row:hover {
+  background-color: dodgerblue;
+}
+
+.table-cell-link {
+  text-decoration: none;
   cursor: cell;
 }
