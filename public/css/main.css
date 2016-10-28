@@ -29,6 +29,7 @@ b {
 
 a.button {
   border: 3px solid dodgerblue;
+  border-radius: 7px;
   display: inline-block;
   font-size: 1.5em;
   margin: 10px;
