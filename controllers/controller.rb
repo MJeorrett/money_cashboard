@@ -12,7 +12,7 @@ class Controller
     table_data = @table.all()
     column_names = table_data.first.keys
 
-    table_headers = column_names.map! do |column_name|
+    table_headers = column_names.map do |column_name|
       column_name.camel_to_title
     end
 
