@@ -17,9 +17,9 @@ class Controller
     end
 
     data = {
+      page_title: "#{@page_title} Index",
       table_data: table_data,
-      table_headers: table_headers,
-      page_title: "#{@page_title} Index"
+      table_headers: table_headers
     }
 
     return data
