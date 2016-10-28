@@ -7,16 +7,18 @@ require_relative('./controllers/controller')
 
 require('pry-byebug')
 
-starwars_db = Database.new( 'star_wars' )
-jedis_table = starwars_db.table( 'jedis' )
-controllers = {}
-
-controllers['/jedis'] = Controller.new( jedis_table )
-
 # BEFORE
 before do
+
+  starwars_db = Database.new( 'star_wars' )
+  jedis_table = starwars_db.table( 'jedis' )
+  controllers = {}
+
+  controllers['jedis'] = Controller.new( jedis_table )
+
   @path = request.path_info
-  @controller = controllers[@path]
+  @path_root = @path[1..-1].split("/").first
+  @controller = controllers[@path_root]
 
   if @controller.nil? && @path != '/page_not_found'
     @method = request.request_method
@@ -46,6 +48,8 @@ end
 
 # SHOW
 get '/:table/:id' do
+  @data = @controller.show_data( params[:id] )
+  erb(:show )
 end
 
 # EDIT

@@ -28,9 +28,9 @@ class SqlBuilderTest < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  def test_select_where_id_sql()
+  def test_select_all_by_id_sql()
     expected = "SELECT * FROM customers WHERE id = 7"
-    actual = SqlBuilder.all_where_id_sql( 'customers', 7 )
+    actual = SqlBuilder.select_all_by_id_sql( 'customers', 7 )
     assert_equal( expected, actual )
   end
 

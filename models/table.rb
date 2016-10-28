@@ -14,4 +14,9 @@ class Table
     return result
   end
 
+  def find_by_id( id )
+    result = SqlInterface.select_all_by_id( @db_name, @name, id )
+    return result
+  end
+
 end

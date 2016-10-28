@@ -1,0 +1,7 @@
+<h1><%= @data[:page_title] %></h1>
+
+<hr>
+
+<% for column_name, value in @data[:record_data] %>
+  <p><b><%= column_name %> :</b> <%= value %></p>
+<% end %>

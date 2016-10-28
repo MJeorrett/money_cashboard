@@ -6,23 +6,23 @@ class SqlBuilder
     return "SELECT * FROM #{table_name}"
   end
 
-  def self.all_where_sql( table_name, conditions_hash )
+  def self.all_where_sql( table_name, conditions )
     select_statement = self.select_all_sql(table_name)
-    where_clause = self.where_clause( conditions_hash )
+    where_clause = self.where_clause( conditions )
 
     return "#{select_statement} #{where_clause}"
   end
 
-  def self.all_where_id_sql( table_name, id )
-    conditions_hash = { id: id }
-    sql = self.all_where_sql( table_name, conditions_hash )
+  def self.select_all_by_id_sql( table_name, id )
+    conditions = { id: id }
+    sql = self.all_where_sql( table_name, conditions )
     return sql
   end
 
-  def self.where_clause( conditions_hash )
+  def self.where_clause( conditions )
     conditions_array = []
 
-    for column, value in conditions_hash
+    for column, value in conditions
       value_sql = self.value_to_sql(value)
       sql = "#{column} = #{value_sql}"
       conditions_array.push(sql)

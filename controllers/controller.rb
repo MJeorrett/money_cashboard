@@ -26,4 +26,15 @@ class Controller
 
   end
 
+  def show_data( id )
+
+    record_data = @table.find_by_id( id )
+
+    data = {
+      page_title: "Show record #{id}",
+      record_data: record_data
+    }
+
+  end
+
 end
