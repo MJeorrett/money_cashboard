@@ -1,3 +1,5 @@
+-- psql -d money_cashboard -f db/sql/money_cashboard.sql
+
 DROP TABLE IF EXISTS transactions_tags;
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS merchants;
