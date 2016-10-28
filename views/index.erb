@@ -2,4 +2,14 @@
 
 <hr>
 
-<%= erb(:'partials/table') %>
+<% @table_data = @data[:table_data] %>
+
+<% if @table_data.nil? || @table_data.empty? %>
+
+  <%= erb(:'partials/no_data') %>
+
+<% else %>
+
+  <%= erb(:'partials/table') %>
+
+<% end %>

@@ -1,5 +1,4 @@
-<% table_data = @data[:table_data] %>
-<% if table_data.nil? || table_data.empty? %>
+<% if @table_data.nil? || @table_data.empty? %>
 
   <%= erb(:'partials/no_data_message') %>
 
@@ -20,8 +19,8 @@
 
     <tbody>
 
-      <% column_names = table_data.first.keys %>
-      <% table_data.each do |data_row| %>
+      <% column_names = @table_data.first.keys %>
+      <% @table_data.each do |data_row| %>
         <tr>
           <% column_names.each do |column_name| %>
             <td><%= data_row[column_name] %></td>

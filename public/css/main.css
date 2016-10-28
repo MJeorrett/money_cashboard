@@ -21,3 +21,8 @@ hr {
 b {
   font-weight: bold;
 }
+
+.no-data-message {
+  color: lightgrey;
+  font-style: italic;
+}

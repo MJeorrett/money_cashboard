@@ -2,6 +2,16 @@
 
 <hr>
 
-<% for column_name, value in @data[:record_data] %>
-  <p><b><%= column_name %> :</b> <%= value %></p>
+<% @record_data = @data[:record_data] %>
+
+<% if @record_data == nil %>
+
+  <%= erb(:'partials/no_data') %>
+
+<% else %>
+
+  <% for column_name, value in @data[:record_data] %>
+    <p><b><%= column_name %> :</b> <%= value %></p>
+  <% end %>
+
 <% end %>
