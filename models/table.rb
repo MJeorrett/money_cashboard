@@ -2,11 +2,12 @@ require_relative('../db/sql_interface')
 
 class Table
 
-  attr_reader :name
+  attr_reader :name, :title_column
 
-  def initialize( db_name, name )
+  def initialize( db_name, name, title_column )
     @db_name = db_name
     @name = name
+    @title_column = title_column
   end
 
   def all()

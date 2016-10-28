@@ -11,7 +11,7 @@ require('pry-byebug')
 before do
 
   starwars_db = Database.new( 'star_wars' )
-  jedis_table = starwars_db.table( 'jedis' )
+  jedis_table = starwars_db.table( 'jedis', 'name' )
   controllers = {}
 
   controllers['jedis'] = Controller.new( jedis_table )
