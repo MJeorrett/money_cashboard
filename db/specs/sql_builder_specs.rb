@@ -5,9 +5,9 @@ require_relative('../sql_builder')
 
 class SqlBuilderTest < MiniTest::Test
 
-  def test_all_records_sql()
+  def test_select_all()
     expected = "SELECT * FROM customers"
-    actual = SqlBuilder.all_records_sql("customers")
+    actual = SqlBuilder.select_all_sql("customers")
     assert_equal(expected, actual)
   end
 
