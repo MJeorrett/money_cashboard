@@ -2,3 +2,13 @@
   color: dodgerblue;
   border: 1.5px solid dodgerblue;
 }
+
+h1 {
+  padding: 10px;
+  font-family: monospace;
+  font-size: 4em;
+}
+
+hr {
+  margin: 10px;
+}

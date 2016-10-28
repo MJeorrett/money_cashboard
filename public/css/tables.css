@@ -6,6 +6,10 @@ table, thead {
   border-width: 3px;
 }
 
+table {
+  margin: 15px;
+}
+
 tr:hover {
   background-color: lightblue;
 }
@@ -16,4 +20,12 @@ tr:hover {
 
 th {
   color: white;
+}
+
+th:not(.th-first) {
+  border-left: 2px solid white;
+}
+
+th, td {
+  cursor: cell;
 }

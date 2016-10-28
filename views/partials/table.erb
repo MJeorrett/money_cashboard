@@ -9,9 +9,10 @@
     <thead>
 
       <tr class="header-row">
-        <% @data[:table_headers].each do |table_header| %>
-
-          <th><%= table_header %></th>
+        <% @data[:table_headers].each_with_index do |table_header, index| %>
+          <% class_att = "" %>
+          <% class_att = 'th-first' if index == 0 %>
+          <th class="<%= class_att %>"><%= table_header %></th>
         <% end %>
       </tr>
 
