@@ -21,7 +21,7 @@
 
       <% column_names = @table_data.first.keys %>
       <% @table_data.each do |data_row| %>
-        <tr onclick="<%= "document.location = '/jedis/#{data_row['id']}'" %>">
+        <tr onclick="<%= "document.location = '/#{@path_root}/#{data_row['id']}'" %>">
           <% column_names.each do |column_name| %>
             <td><%= data_row[column_name] %></td>
           <% end %>
