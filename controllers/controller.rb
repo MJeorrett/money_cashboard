@@ -1,18 +1,29 @@
-require('sinatra')
+require_relative('../support/string__camel_to_title')
 
 class Controller
 
   def initialize( table )
     @table = table
+    @page_title = @table.name.camel_to_title
   end
 
-  def self.create_index( path, table, page_title )
-    get( path ) do
-      @table_data = model.all()
-      @table_headers = table_data.first.keys
-      @page_title = table.
-      erb(:index)
+  def index_data()
+
+    table_data = @table.all()
+    column_names = table_data.first.keys
+
+    table_headers = column_names.map! do |column_name|
+      column_name.camel_to_title
     end
+
+    data = {
+      table_data: table_data,
+      table_headers: table_headers,
+      page_title: "#{@page_title} Index"
+    }
+
+    return data
+
   end
 
 end

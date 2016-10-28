@@ -1,4 +1,5 @@
-<% if @table_data.empty? || @table_data.nil?%>
+<% table_data = @data[:table_data] %>
+<% if table_data.nil? || table_data.empty? %>
 
   <%= erb(:'partials/no_data_message') %>
 
@@ -8,7 +9,7 @@
     <thead>
 
       <tr class="header-row">
-        <% @table_headers.each do |table_header| %>
+        <% @data[:table_headers].each do |table_header| %>
 
           <th><%= table_header %></th>
         <% end %>
@@ -18,9 +19,10 @@
 
     <tbody>
 
-      <% @table_data.each do |data_row| %>
+      <% column_names = table_data.first.keys %>
+      <% table_data.each do |data_row| %>
         <tr>
-          <% @table_data.first.keys.each do |column_name| %>
+          <% column_names.each do |column_name| %>
             <td><%= data_row[column_name] %></td>
           <% end %>
         </tr>

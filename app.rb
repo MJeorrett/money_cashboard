@@ -9,12 +9,23 @@ require('pry-byebug')
 
 starwars_db = Database.new( 'star_wars' )
 jedis_table = starwars_db.table( 'jedis' )
+controllers = {}
 
-# Controller.create_index( '/jedis', jedis_table, 'Jedis Index')
+controllers['jedis'] = Controller.new( jedis_table )
 
-get '/jedis' do
-  @table_data = jedis_table.all()
-  @table_headers = @table_data.first.keys
-  @page_title = "Jedis Index"
-  erb(:index)
+get '/:table' do
+
+  table = params[:table]
+  controller = controllers[table]
+
+  if controller.nil?
+    @method = 'GET'
+    @route = "/#{table}"
+    erb_file = :'partials/page_not_found'
+  else
+    @data = controller.index_data()
+    erb_file = :'index'
+  end
+
+  erb(erb_file)
 end

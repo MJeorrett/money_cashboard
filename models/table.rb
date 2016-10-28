@@ -2,13 +2,15 @@ require_relative('../db/sql_interface')
 
 class Table
 
-  def initialize( db_name, table_name )
+  attr_reader :name
+
+  def initialize( db_name, name )
     @db_name = db_name
-    @table_name = table_name
+    @name = name
   end
 
   def all()
-    result = SqlInterface.select_all( @db_name, @table_name )
+    result = SqlInterface.select_all( @db_name, @name )
     return result
   end
 
