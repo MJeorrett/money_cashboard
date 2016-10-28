@@ -1,0 +1,19 @@
+td, th {
+  padding: 5px;
+}
+
+table, thead {
+  border-width: 3px;
+}
+
+tr:hover {
+  background-color: lightblue;
+}
+
+.header-row, .header-row:hover {
+  background-color: dodgerblue;
+}
+
+th {
+  color: white;
+}
