@@ -7,7 +7,7 @@ class Database
   end
 
   def table( table_name )
-    return Table.new( db_name, table_name )
+    return Table.new( @db_name, table_name )
   end
 
 end

@@ -7,8 +7,9 @@ class Table
     @table_name = table_name
   end
 
-  def self.all()
-
+  def all()
+    result = SqlInterface.select_all( @db_name, @table_name )
+    return result
   end
 
 end
