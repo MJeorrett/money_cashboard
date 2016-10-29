@@ -3,7 +3,7 @@
   border: 1.5px solid dodgerblue;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+a, h1, h2, h3, h4, h5, h6, p, label, input {
   font-family: monospace;
   font-size: 20px;
   padding: 10px;
@@ -31,11 +31,18 @@ a.button, input.button {
   background-color: white;
   border: 3px solid dodgerblue;
   border-radius: 7px;
+  box-sizing: content-box;
   display: inline-block;
   font-size: 1.5em;
+  height: 23px;
   margin: 10px;
   padding: 5px;
   text-decoration: none;
+}
+
+a.button {
+  padding-top: 7px;
+  padding-bottom: 4px;
 }
 
 a.button:hover, input.button:hover {
@@ -49,4 +56,13 @@ input, label {
 
 label {
   margin-left: 10px;
+}
+
+input {
+  padding: 3px;
+}
+
+form {
+  padding: 0;
+  margin: 0;
 }
