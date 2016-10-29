@@ -66,4 +66,5 @@ end
 
 # DESTROY
 delete '/:table/:id' do
+  params.to_s
 end

@@ -47,6 +47,13 @@ a.button {
 
 a.button:hover, input.button:hover {
   background-color: lightblue;
+  cursor: pointer;
+}
+
+a.delete-button:hover, input.delete-button:hover {
+  color: red;
+  background-color: lightpink;
+  border-color: red;
 }
 
 input, label {
@@ -65,4 +72,8 @@ input {
 form {
   padding: 0;
   margin: 0;
+}
+
+form.delete-button-form {
+  display: inline-block;
 }

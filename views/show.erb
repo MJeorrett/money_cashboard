@@ -19,3 +19,9 @@
 <hr>
 
 <a class="button" href="<%= "/#{@path_root}" %>">&lt; Index</a>
+
+<% id = @data[:record_data]['id'] %>
+<form class="delete-button-form" action="<%= "/#{@path_root}/#{id}" %>" method="post">
+  <input class="button delete-button" type="submit" value="Delete" />
+  <input type="hidden" name="_method" value="delete" />
+</form>
