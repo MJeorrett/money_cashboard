@@ -34,6 +34,17 @@ class SqlBuilderTest < MiniTest::Test
     assert_equal( expected, actual )
   end
 
+  def test_insert_sql()
+    expected = "INSERT INTO customers(first_name, last_name, funds) VALUES ('Matthew', 'Jeorrett', 14.99) RETURNING id"
+    data = {
+      first_name: "Matthew",
+      last_name: "Jeorrett",
+      funds: 14.99
+    }
+    actual = SqlBuilder.insert_sql("customers", data)
+    assert_equal(expected, actual)
+  end
+
   def test_value_to_sql__string()
     assert_equal("'Matthew'", SqlBuilder.value_to_sql("Matthew"))
   end

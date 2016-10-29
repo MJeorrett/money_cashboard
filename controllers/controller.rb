@@ -12,7 +12,7 @@ class Controller
 
   def index_data()
     table_data = @table.all()
-    column_names = table_data.first.keys
+    column_names = @table.column_names()
 
     table_headers = column_names.map do |column_name|
       column_name.camel_to_title
@@ -29,14 +29,18 @@ class Controller
   end
 
   def new_data()
-    column_data = @table.column_data
+    columns_data = @table.columns_data
 
     data = {
       record_title: @record_title,
-      columns_data: column_data
+      columns_data: columns_data
     }
 
     return data
+  end
+
+  def create( data )
+    @table.create_record( data )
   end
 
   def show_data( id )

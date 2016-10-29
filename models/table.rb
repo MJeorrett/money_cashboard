@@ -20,8 +20,24 @@ class Table
     return result
   end
 
-  def column_data()
-    @database.columns_for_table( self )
+  def columns_data()
+    columns_data_arr = @database.columns_for_table( self )
+    return columns_data_arr
+  end
+
+  def column_names()
+    column_names_arr = @database.column_names_for_table( self )
+    return column_names_arr
+  end
+
+  def create_record( data )
+    column_names = self.column_names()
+
+    values_hash = data.select do |key, value|
+        column_names.include?( key )
+    end
+
+    id = SqlInterface.insert( @database.name, @name, values_hash )
   end
 
 end

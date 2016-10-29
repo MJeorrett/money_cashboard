@@ -22,4 +22,9 @@ class SqlInterface
     return result
   end
 
+  def self.insert( db_name, table_name, values_hash )
+    sql = SqlBuilder.insert_sql( table_name, values_hash )
+    return SqlRunner.run( db_name, sql, true ).first()['id']
+  end
+
 end

@@ -22,6 +22,15 @@ class Database
     return Table.new( self, table_name, name_column )
   end
 
+  def column_names_for_table( table )
+    sql =
+    "SELECT column_name FROM information_schema.columns
+    WHERE table_name = '#{table.name}'"
+    results = SqlRunner.run( @name, sql, true )
+    results.map! { |result| result['column_name'] }
+    return results
+  end
+
   def columns_for_table( table )
     sql =
     "SELECT column_name, data_type
