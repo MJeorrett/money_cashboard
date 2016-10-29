@@ -38,6 +38,20 @@ class Table
     end
 
     id = SqlInterface.insert( @database.name, @name, values_hash )
+
+    return id
+  end
+
+  def update_record( data )
+    column_names = self.column_names()
+    column_names.delete('id')
+
+    values_hash = data.select do |key, value|
+        column_names.include?( key )
+    end
+    binding.pry
+
+    SqlInterface.update( @database.name, @name, values_hash, data[:id].to_i )
   end
 
   def delete_record( id )

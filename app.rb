@@ -46,7 +46,7 @@ end
 
 # CREATE
 post '/:table' do
-  @controller.create( params )
+  @controller.create_record( params )
   redirect to( "/#{params[:table]}" )
 end
 
@@ -65,7 +65,8 @@ end
 
 # UPDATE
 put '/:table/:id' do
-  params.to_s
+  @controller.update_record( params )
+  redirect to( "/#{params[:table]}" )
 end
 
 # DESTROY

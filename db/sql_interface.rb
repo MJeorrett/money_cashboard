@@ -27,6 +27,11 @@ class SqlInterface
     return SqlRunner.run( db_name, sql, true ).first()['id']
   end
 
+  def self.update( db_name, table_name, values_hash, id )
+    sql = SqlBuilder.update_sql( table_name, values_hash, id)
+    return SqlRunner.run( db_name, sql, true )
+  end
+
   def self.delete_with_id( db_name, table_name, id )
     sql = SqlBuilder.delete_with_id_sql( table_name, id )
     return SqlRunner.run( db_name, sql, true )

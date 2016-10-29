@@ -39,8 +39,12 @@ class Controller
     return data
   end
 
-  def create( data )
+  def create_record( data )
     @table.create_record( data )
+  end
+
+  def update_record( data )
+    @table.update_record( data )
   end
 
   def show_data( id )

@@ -29,6 +29,23 @@ class SqlBuilder
     return "INSERT INTO #{table_name}(#{columns_sql}) VALUES (#{values_sql}) RETURNING id"
   end
 
+  def self.update_sql( table_name, values_hash, id)
+    sql_arrays = self.get_columns_and_values( values_hash )
+    columns_array = sql_arrays[:columns_array]
+    values_array = sql_arrays[:values_array]
+
+    assignments_array = []
+    i_max = values_hash.length - 1
+    for i in (0..i_max)
+      assignments_array.push("#{columns_array[i]} = #{values_array[i]}")
+    end
+
+    assignments_sql = assignments_array.join(", ")
+    where_clause = self.where_clause( id: id )
+
+    return "UPDATE #{table_name} SET #{assignments_sql} #{where_clause}"
+  end
+
   def self.delete_all_sql( table_name )
     return "DELETE FROM #{table_name}"
   end
