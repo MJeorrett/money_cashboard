@@ -45,6 +45,12 @@ class SqlBuilderTest < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_delete_with_id_sql()
+    expected = "DELETE FROM customers WHERE id = 4"
+    actual = SqlBuilder.delete_with_id_sql("customers", 4)
+    assert_equal(expected, actual)
+  end
+
   def test_value_to_sql__string()
     assert_equal("'Matthew'", SqlBuilder.value_to_sql("Matthew"))
   end

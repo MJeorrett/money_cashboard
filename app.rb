@@ -66,5 +66,6 @@ end
 
 # DESTROY
 delete '/:table/:id' do
-  params.to_s
+  @controller.delete_record( params[:id] )
+  redirect to( "/#{params[:table]}" )
 end

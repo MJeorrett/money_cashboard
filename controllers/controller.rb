@@ -54,4 +54,8 @@ class Controller
     return data
   end
 
+  def delete_record( id )
+    @table.delete_record( id )
+  end
+
 end

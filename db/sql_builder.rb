@@ -29,6 +29,16 @@ class SqlBuilder
     return "INSERT INTO #{table_name}(#{columns_sql}) VALUES (#{values_sql}) RETURNING id"
   end
 
+  def self.delete_all_sql( table_name )
+    return "DELETE FROM #{table_name}"
+  end
+
+  def self.delete_with_id_sql( table_name, id )
+    delete_statement = self.delete_all_sql( table_name )
+    where_clause = self.where_clause(id: id)
+    return "#{delete_statement} #{where_clause}"
+  end
+
   def self.where_clause( conditions )
     conditions_array = []
 

@@ -40,4 +40,8 @@ class Table
     id = SqlInterface.insert( @database.name, @name, values_hash )
   end
 
+  def delete_record( id )
+    results = SqlInterface.delete_with_id( @database.name, @name, id )
+  end
+
 end
