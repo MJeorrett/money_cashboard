@@ -2,17 +2,23 @@
 
 <hr>
 
-<% columns_data = @data[:columns_data] %>
+<form action="/<%= @path_root %>" method="post">
 
-<% columns_data.each do |column_data| %>
-  <% @column_data = column_data %>
-  <% case column_data['data_type']
-       when :string %>
-       <%= erb(:'partials/inputs/text') %>
-   <% end %>
+  <% columns_data = @data[:columns_data] %>
 
-<% end %>
+  <% columns_data.each do |column_data| %>
+    <% @column_data = column_data %>
+    <% case column_data['data_type']
+         when :string %>
+         <%= erb(:'partials/inputs/text') %>
+     <% end %>
+
+  <% end %>
 
 <hr>
+
+  <input class="button" type="submit" value="Create" />
+
+</form>
 
 <a class="button" href="/<%= @path_root %>">Cancel</a>

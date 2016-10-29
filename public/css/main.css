@@ -27,7 +27,8 @@ b {
   font-style: italic;
 }
 
-a.button {
+a.button, input.button {
+  background-color: white;
   border: 3px solid dodgerblue;
   border-radius: 7px;
   display: inline-block;
@@ -37,7 +38,7 @@ a.button {
   text-decoration: none;
 }
 
-a.button:hover {
+a.button:hover, input.button:hover {
   background-color: lightblue;
 }
 

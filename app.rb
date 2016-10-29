@@ -46,6 +46,7 @@ end
 
 # CREATE
 post '/:table' do
+  params.to_s
 end
 
 # SHOW
