@@ -37,7 +37,7 @@ class Controller
     record_title = record_data[@table.title_column]
 
     data = {
-      page_title: "Show record #{record_title}",
+      page_title: record_title,
       record_data: record_data
     }
 
