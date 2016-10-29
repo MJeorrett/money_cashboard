@@ -11,7 +11,6 @@ class Controller
   end
 
   def index_data()
-
     table_data = @table.all()
     column_names = table_data.first.keys
 
@@ -27,7 +26,6 @@ class Controller
     }
 
     return data
-
   end
 
   def new_data()
@@ -42,7 +40,6 @@ class Controller
   end
 
   def show_data( id )
-
     record_data = @table.find_by_id( id )
 
     data = {
@@ -51,7 +48,6 @@ class Controller
     }
 
     return data
-
   end
 
 end
