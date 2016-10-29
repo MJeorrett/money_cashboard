@@ -40,3 +40,12 @@ a.button {
 a.button:hover {
   background-color: lightblue;
 }
+
+input, label {
+  display: inline-block;
+  margin: 5px;
+}
+
+label {
+  margin-left: 10px;
+}
