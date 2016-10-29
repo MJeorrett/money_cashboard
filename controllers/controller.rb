@@ -4,7 +4,10 @@ class Controller
 
   def initialize( table )
     @table = table
-    @page_title = @table.name.camel_to_title
+    @table_title = @table.name.camel_to_title
+
+    @record_title = @table_title
+    @record_title = @table_title[0..-2] if @table_title[-1] == 's'
   end
 
   def index_data()
@@ -17,7 +20,8 @@ class Controller
     end
 
     data = {
-      page_title: "#{@page_title} Index",
+      table_title: @table_title,
+      record_title: @record_title,
       table_data: table_data,
       table_headers: table_headers
     }
@@ -33,13 +37,14 @@ class Controller
 
   def show_data( id )
 
-    record_title = record_data[@table.title_column]
     record_data = @table.find_by_id( id )
 
     data = {
-      page_title: record_title,
+      page_title: record_data[@table.title_column],
       record_data: record_data
     }
+
+    return data
 
   end
 

@@ -1,4 +1,4 @@
-<h1><%= @data[:page_title] %></h1>
+<h1><%= @data[:table_title] %> Index</h1>
 
 <hr>
 
@@ -13,3 +13,7 @@
   <%= erb(:'partials/table') %>
 
 <% end %>
+
+<hr>
+
+<a class="button" href="<%= "/#{@path_root}/new" %>">New <%= @data[:record_title] %></a>
