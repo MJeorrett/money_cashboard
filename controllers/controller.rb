@@ -33,8 +33,8 @@ class Controller
 
   def show_data( id )
 
-    record_data = @table.find_by_id( id )
     record_title = record_data[@table.title_column]
+    record_data = @table.find_by_id( id )
 
     data = {
       page_title: record_title,
