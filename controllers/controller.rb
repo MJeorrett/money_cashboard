@@ -32,7 +32,13 @@ class Controller
 
   def new_data()
     column_data = @table.column_data
-    return column_data
+
+    data = {
+      record_title: @record_title,
+      column_data: column_data
+    }
+
+    return data
   end
 
   def show_data( id )
