@@ -20,5 +20,7 @@
 
 <a class="button" href="<%= "/#{@path_root}" %>">&lt; Index</a>
 
+<a class="button" href="<%= "/#{@path_root}/#{@data[:id]}/edit" %>">Edit</a>
+
 <% @delete_form_action = "/#{@path_root}/#{@data[:record_data]['id']}" %>
 <%= erb(:'partials/inputs/delete_button') %>

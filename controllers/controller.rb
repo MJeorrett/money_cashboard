@@ -52,6 +52,7 @@ class Controller
 
     data = {
       page_title: record_data[@table.title_column],
+      id: id,
       record_data: record_data
     }
 

@@ -49,7 +49,6 @@ class Table
     values_hash = data.select do |key, value|
         column_names.include?( key )
     end
-    binding.pry
 
     SqlInterface.update( @database.name, @name, values_hash, data[:id].to_i )
   end
