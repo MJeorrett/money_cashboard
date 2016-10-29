@@ -26,6 +26,11 @@ class Controller
 
   end
 
+  def new_data()
+    column_data = @table.column_data
+    return column_data
+  end
+
   def show_data( id )
 
     record_data = @table.find_by_id( id )

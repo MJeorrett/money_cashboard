@@ -40,6 +40,8 @@ end
 
 # NEW
 get '/:table/new' do
+  @data = @controller.new_data()
+  erb(:new)
 end
 
 # CREATE
