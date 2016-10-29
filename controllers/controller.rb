@@ -33,7 +33,7 @@ class Controller
 
     data = {
       record_title: @record_title,
-      column_data: column_data
+      columns_data: column_data
     }
 
     return data
