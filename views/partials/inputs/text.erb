@@ -1,4 +1,6 @@
-<% column_name = @column_data['column_name'] %>
+<% name = @column_data['column_name'] %>
+<% value_att = "" %>
+<% value_att = @column_value if @view_mode == :edit %>
 
-<label for="<%= column_name %>_input"><%= column_name %> :</label>
-<input id="<%= column_name %>_input" type="text" name="<%= column_name %>" required/>
+<label for="<%= name %>_input"><%= name %> :</label>
+<input id="<%= name %>_input" type="text" name="<%= name %>" value="<%= value_att %>" required/>

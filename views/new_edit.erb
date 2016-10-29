@@ -1,0 +1,41 @@
+<% if @view_mode == :edit %>
+  <h1>Edit <%= @data[:page_title] %></h1>
+<% else %>
+  <h1>New <%= @data[:record_title] %></h1>
+<% end %>
+
+<hr>
+
+<% form_action = "/#{@path_root}" %>
+<% form_action += "/#{@data[:id]}" if @view_mode == :edit %>
+
+<form action="<%= form_action %>" method="post">
+
+  <% columns_data = @data[:columns_data] %>
+  <% values_data = @data[:values_data] if @view_mode == :edit %>
+
+  <% columns_data.each do |column_data| %>
+    <% @column_data = column_data %>
+    <% column_name = @column_data['column_name'] %>
+    <% @column_value = values_data[column_name] if @view_mode == :edit %>
+
+    <% case column_data['data_type']
+         when :string %>
+         <%= erb(:'partials/inputs/text') %>
+     <% end %>
+
+  <% end %>
+
+  <% if @view_mode == :edit %>
+    <input type="hidden" name="_method" value="put" />
+  <% end %>
+
+<hr>
+
+  <% submit_value = "Create" %>
+  <% submit_value = "Update" if @view_mode == :edit %>
+
+  <input class="button" type="submit" value="<%= submit_value %>" />
+  <a class="button" href="/<%= @path_root %>">Cancel</a>
+
+</form>

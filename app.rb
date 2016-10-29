@@ -41,7 +41,7 @@ end
 # NEW
 get '/:table/new' do
   @data = @controller.new_data()
-  erb(:new)
+  erb(:new_edit)
 end
 
 # CREATE
@@ -58,10 +58,14 @@ end
 
 # EDIT
 get '/:table/:id/edit' do
+  @data = @controller.update_data( params[:id] )
+  @view_mode = :edit
+  erb(:new_edit)
 end
 
 # UPDATE
 put '/:table/:id' do
+  params.to_s
 end
 
 # DESTROY

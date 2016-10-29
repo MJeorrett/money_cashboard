@@ -54,6 +54,21 @@ class Controller
     return data
   end
 
+  def update_data( id )
+
+      columns_data = @table.columns_data
+      values_data = @table.find_by_id( id )
+
+      data = {
+        page_title: values_data[@table.title_column],
+        id: id,
+        columns_data: columns_data,
+        values_data: values_data
+      }
+
+      return data
+  end
+
   def delete_record( id )
     @table.delete_record( id )
   end
